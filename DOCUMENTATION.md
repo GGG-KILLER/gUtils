@@ -5,7 +5,7 @@ Formatting:
 How to listen to an gUtils event:
 ```lua
 gUtils.Event:Listen ( '<event name>', function ( ... )
-	-- do something
+	-- do somethingS
 end )
 ```
 
@@ -186,7 +186,7 @@ end )
 
 	Returns whether the player is using a shared copy of Garry's Mod
 
-- `*Internal* <void> Player:SetFamilyShare ( <string> SteamID = nil )`
+- *Internal* `<void> Player:SetFamilyShare ( <string> SteamID = nil )`
 
 	**Internal, do not call.**
 
