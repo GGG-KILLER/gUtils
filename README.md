@@ -33,5 +33,6 @@ It is a gLua (only some can be used with pure lua) object-oriented library that 
 - Table extensions
 - Loader (I have no idea why you'd want this, but with some modifications it works)
 - Event system
+
 ---
 Expect more to be added to this as I have alot of free time in my programming classes
