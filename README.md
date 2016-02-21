@@ -1,5 +1,7 @@
 # gUtils
-Because gLib was already taken.
+[![forthebadge](http://forthebadge.com/images/badges/designed-in-ms-paint.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/ages-12.svg)](http://forthebadge.com)
 
 ## What is it?
 It is a gLua (only some can be used with pure lua) object-oriented library that strives to provide some default controls and utilities to make developers lives without over-complicating things.
