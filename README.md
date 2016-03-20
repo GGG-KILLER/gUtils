@@ -37,4 +37,4 @@ It is a gLua (only some can be used with pure lua) object-oriented library that 
 - Event system
 
 ---
-Expect more to be added to this as I have alot of free time in my programming classes
+This library is no longer under development, if any bugs get reported I'll fix them when I can, but don't expect new features to be added (though you may suggest them and create pull requests if you'd like).
