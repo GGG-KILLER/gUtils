@@ -22,7 +22,12 @@ gUtils.Logger:StartBox	( )
 	gUtils.Logger:Log		'Loaded gUtils.OOP'
 	gUtils.Logger:Log		'Loaded gUtils.Logger.Logger'
 	gUtils.Logger:Log		'Loaded gUtils.Initializer'
-
+	
+	gUtils.LoadSV			'gUtils.Config'
+	if SERVER then
+		gUtils.Logger:Log		'Loaded gUtils.Config'
+	end
+	
 	gUtils.LoadSH			'gUtils.List'
 	gUtils.Logger:Log		'Loaded gUtils.List'
 
@@ -47,9 +52,11 @@ gUtils.Logger:StartBox	( )
 	gUtils.LoadSH			'gUtils.Extend.String'
 	gUtils.Logger:Log		'Loaded gUtils.Extend.String'
 
-	gUtils.LoadSH			'gUtils.Player.Extend'
-	gUtils.Logger:Log		'Loaded gUtils.Player.Extend'
-
+	gUtils.LoadSV			'gUtils.Player.Extend'
+	if SERVER then
+		gUtils.Logger:Log		'Loaded gUtils.Player.Extend'
+	end
+	
 	gUtils.LoadSH			'gUtils.Player.Events'
 	gUtils.Logger:Log		'Loaded gUtils.Player.Events'
 

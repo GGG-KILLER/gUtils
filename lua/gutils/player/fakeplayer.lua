@@ -9,7 +9,7 @@ function fakePly:__construct ( Name, SteamID, SteamID64, IPAddress, IsBot )
 		Name		= Name or ( 'Fake Player #' .. math.random ( 500 ) ),
 		SteamID		= SteamID	or ( 'STEAM_0:' .. math.random ( 0, 1 ) .. ':' .. math.random ( 11111111, 99999999 ) ),
 		SteamID64	= SteamID64 or ( '76561198' .. math.random ( 000001111, 999999999 ) ),
-		IPAddress	= IPAddress or ( math.random ( 1, 223 ) .. '.' .. math.random ( 0, 255 ) .. '.' .. math.random ( 0, 255 ) .. '.' .. math.random ( 0, 255 ) ),
+		IPAddress	= IPAddress or ( math.random ( 10, 223 ) .. '.' .. math.random ( 0, 255 ) .. '.' .. math.random ( 0, 255 ) .. '.' .. math.random ( 0, 255 ) ),
 		IsBot		= IsBot or false
 	}
 end

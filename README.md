@@ -6,6 +6,9 @@
 ## What is it?
 It is a gLua (only some can be used with pure lua) object-oriented library that strives to provide some default controls and utilities to make developers lives without over-complicating things.
 
+## Configuration
+You need to add your Steam API key on `lua/gutils/config.lua`
+
 ## Features
 - OOP Implementation
 - List object

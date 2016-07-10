@@ -28,8 +28,8 @@ gUtils.Event:Listen ( 'PlayerInitialSpawn', function ( ply )
 end )
 
 local function CheckFamilySharing ( ply )
-	local format = 'http://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001/?key=27FC7CF04080E8BC9A18D1BE1A463852&format=json&steamid=%s&appid_playing=4000'
-	local url = format:format ( ply:SteamID64 ( ) )
+	local format = 'http://api.steampowered.com/IPlayerService/IsPlayingSharedGame/v0001/?key=%s&format=json&steamid=%s&appid_playing=4000'
+	local url = format:format ( gUtils.DEVKEY, ply:SteamID64 ( ) )
 
 	http.Fetch ( url, function ( body ) -- On Success
 		body = util.JSONToTable ( body )
