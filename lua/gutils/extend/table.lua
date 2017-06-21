@@ -63,9 +63,7 @@ end
 function gUtils.Table.Count ( tbl )
 	local count = 0
 	for _, v in pairs ( tbl ) do
-		if v ~= nil then
-			count = count + 1
-		end
+		count = count + 1
 	end
 	return count
 end
