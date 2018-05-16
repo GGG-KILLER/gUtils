@@ -4,7 +4,6 @@
 --[[    oop.lua        ]]--
 --[[   By GGG KILLER   ]]--
 --[[===================]]--
-local sd = string.dump
 
 local function _class ( metatable, ... )
 	local parents = {...}
@@ -24,7 +23,7 @@ local function _class ( metatable, ... )
 
 	function metatable:AddSetter ( name, OnChanged )
 		self['Set' .. name] = function ( obj, v )
-			if onChanged then
+			if OnChanged then
 				-- OnChanged( <Instance>, <Old Value>, <New Value> )
 				OnChanged ( obj, obj[name], v )
 			end
@@ -49,17 +48,17 @@ local function _class ( metatable, ... )
 			-- Doing this first will assure that the parents of the parent class get called first
 			if parent.__constructors and #parent.__constructors > 0 then
 				for _, constructor in ipairs ( parent.__constructors ) do
-					if constructor ~= function() end and not constrs[sd(constructor)] then
+					if constructor ~= function() end and not constrs[constructor] then
 						metatable.__constructors[#metatable.__constructors + 1] = constructor
-						constrs[sd(constructor)] = true
+						constrs[constructor] = true
 					end
 				end
 			end
 
 			-- Copy the parent constructor if it exists
-			if parent.__construct ~= nil and not constrs[sd(parent.__construct)] then
+			if parent.__construct ~= nil and not constrs[parent.__construct] then
 				metatable.__constructors[#metatable.__constructors + 1] = parent.__construct
-				constrs[sd(parent.__construct)] = true
+				constrs[sparent.__construct] = true
 			end
 
 			-- Copy properties and methods of parent class to child
