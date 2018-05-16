@@ -1,10 +1,8 @@
 --[[===================]]--
---[[    OOP for Lua    ]]-- No, not gmod lua,
---[[    oop.lua        ]]-- but it also works
---[[   By GGG KILLER   ]]-- on it too
---[[ Warning, features ]]--
---[[ demonstration at  ]]--
---[[      the end.     ]]--
+--[[    OOP for Lua    ]]--
+--[[ works in pure lua ]]--
+--[[    oop.lua        ]]--
+--[[   By GGG KILLER   ]]--
 --[[===================]]--
 local sd = string.dump
 
