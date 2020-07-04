@@ -9,8 +9,12 @@ gUtils.Event:Listen ( '<event name>', function ( ... )
 end )
 ```
 
-- ``<Class> gUtils.OOP ( <table> Class, <table(s)> Parents(Optional) )``
-	Creates a class and uses the `__construct` method as the constructor
+- ``<Class> gUtils.OOP ( <table> class, <nil|table> parent = nil, <table[]> ...mixins )``
+	Creates a class and uses the `__construct` method as the constructor.
+
+	When inheriting from another class, use `self.base` to access the base class' components.
+
+	To invoke the base class' constructor call `self:base`.
 
 	Usage:
 	```lua
@@ -19,11 +23,16 @@ end )
 	function Dad:__construct ( name )
 		self.Name = name
 	end
+
 	function Dad:talk ( message )
 		print ( self.Name .. ": " .. message )
 	end
 
 	local Son = gUtils.OOP ( { }, Dad )
+
+	function Son:__construct ( name )
+		self:base(name)
+	end
 
 	Dad "Son's Dad":talk "Hello son" -- Son's Dad: Hello son
 	Son "Dad's Son":talk "Hey dad" -- Dad's Son: Hey dad
@@ -138,17 +147,20 @@ end )
 
 	Runs the first function in the queue
 
-- ``<table> gUtils.Table.Add ( <table> Table1, <table> Table2 )``
+- ``<table> gUtils.Table.Concat ( <table> ...tables )``
 
-	Joins the contents of `Table1` and `Table2` in a single table ignoring indexing
+	Joins the contents of a variable number of arrays into a single array
 
-- ``<table> gutils.Table.Filter ( <table> Table, <function> Filter )``
+- ``<table> gutils.Table.Filter(<table> table, <<(bool, bool)> f(<any> value, <any> key, <table> tbl)> filter)``
 
-	Calls the function `Filter` with the `key`, `value` and `Table` in the respective order and expects the return to be:
+	Calls the function `filter` with the `value`, `key` and `table` in that order and expects the return values to be (in the presented order):
 	- `<boolean> accept` - Whether the value should be kept
-	- `<boolean> nonSequential` - Whether the key should be kept
-
+	- `<boolean> keepKey` - Whether the key should be kept
 	for each of the values passed to the function.
+
+- ``<void> gUtils.Table.Clear ( <table> table )``
+
+	Sets all values of a table to `nil`
 
 - ``<table> gUtils.Table.ValuesForKeys ( <table> Table )``
 

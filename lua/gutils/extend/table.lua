@@ -1,49 +1,43 @@
 gUtils.Table = {}
 
 --[[=============================================]]
---[[ A function that joins the value of 2 tables ]]
+--[[ A function that joins the value of n arrays ]]
 --[[=============================================]]
-function gUtils.Table.Add ( a, b )
-	local r = {}
-	for k, v in ipairs ( a ) do
-		r[ #r + 1 ] = v
+function gUtils.Table.Concat(...)
+	local res, idx = {}, 1
+	for _, tbl in ipairs { ... } do
+		for k, v in ipairs(tbl) do
+			res[idx] = v
+			idx = idx + 1
+		end
 	end
-
-	for k, v in ipairs ( b ) do
-		r[ #r + 1 ] = v
-	end
-
-	return r
+	return res
 end
 
 --[[============================================================]]--
 --[[ Filters a table according to the return of the function fn ]]--
 --[[============================================================]]--
-function gUtils.Table.Filter ( tbl, fn )
+function gUtils.Table.Filter(tbl, fn)
 	local out = {}
 
 	for k, v in pairs ( tbl ) do
-		local accept, nonSequential = fn ( k, v, tbl )
+		local accept, keepKey = fn ( v, k, tbl )
 
-		if accept and nonSequential then
-
+		if accept and keepKey then
 			out[k] = v
-
 		elseif accept then
-
-			out[ #out + 1 ] = v
-
+			out[#out + 1] = v
 		end
 	end
 
 	return out
 end
 
---[[==================================]]--
---[[ Clears a table to save up memory ]]--
---[[==================================]]--
-function gUtils.Table.Clear ( tbl )
-	for k, v in pairs ( tbl ) do
+--[[================]]--
+--[[ Clears a table ]]--
+--[[================]]--
+function gUtils.Table.Clear(tbl)
+	for k, v in pairs(tbl) do
 		tbl[k] = nil
 	end
 end
@@ -51,18 +45,20 @@ end
 --[[=========================]]--
 --[[ Changes values for keys ]]--
 --[[=========================]]--
-function gUtils.Table.ValuesForKeys ( tbl )
-	for k, v in pairs ( tbl ) do
-		tbl[ v ] = k
+function gUtils.Table.ValuesForKeys(tbl)
+	local out = {}
+	for k, v in pairs(tbl) do
+		out[v] = k
 	end
+	return out
 end
 
 --[[==========================================]]--
 --[[ Counts the number of values in the table ]]--
 --[[==========================================]]--
-function gUtils.Table.Count ( tbl )
+function gUtils.Table.Count(tbl)
 	local count = 0
-	for _, v in pairs ( tbl ) do
+	for _k, _v in pairs(tbl) do
 		count = count + 1
 	end
 	return count
