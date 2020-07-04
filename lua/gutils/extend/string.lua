@@ -3,7 +3,7 @@ gUtils.String = {}
 --[[============================================]]--
 --[[ Capitalizes the first letter of the string ]]--
 --[[============================================]]--
-function gUtils.String.Capitalize (str)
+function gUtils.String.Capitalize(str)
     return (str:sub(1,1)):upper() .. str:sub(2)
 end
 
@@ -14,9 +14,9 @@ local trim, sub = string.Trim, string.sub
 function gUtils.String.SplitBySize(str, size)
     local chunks = {}
     local last = 1
-	str = trim(str)
+    str = trim(str)
 
-    for i=1, #str, size do
+    for i = 1, #str, size do
         last = i + size
         chunks [#chunks + 1] = sub(str, i, math.Clamp(i + size, i, #str))
     end

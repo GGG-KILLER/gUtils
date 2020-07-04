@@ -1,27 +1,27 @@
-local function normalizePath ( name )
+local function normalizePath(name)
 	-- Transforms into an actual path (if you use upper case letters in file names/paths you're stupid)
-	return name:lower ( ):gsub ( '%.', '/' ) :gsub ( ' ', '_' ):gsub ( '[\\/]+', '/' ) .. '.lua'
+	return name:lower():gsub('%.', '/'):gsub(' ', '_'):gsub('[\\/]+', '/') .. '.lua'
 end
 
-gUtils.LoadCL = function ( name )
-	name = normalizePath ( path )
+gUtils.LoadCL = function(name)
+	name = normalizePath(path)
 	if SERVER then
-		AddCSLuaFile ( name )
+		AddCSLuaFile(name)
 	else
-		include ( name )
+		return include(name)
 	end
 end
 
 gUtils.LoadSV = function ( name )
 	if SERVER then
-		include ( normalizePath ( name ) )
+		return include(normalizePath(name))
 	end
 end
 
-gUtils.LoadSH = function ( name )
-	name = normalizePath ( name )
+gUtils.LoadSH = function(name)
+	name = normalizePath(name)
 	if SERVER then
-		AddCSLuaFile ( name )
+		AddCSLuaFile(name)
 	end
-	include ( name )
+	return include(name)
 end
