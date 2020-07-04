@@ -10,11 +10,10 @@ end
 --[[============================================================]]--
 --[[ Splits a string in chunks having the maximum size of <max> ]]--
 --[[============================================================]]--
-local trim, sub = string.Trim, string.sub
+local sub = string.sub
 function gUtils.String.SplitBySize(str, size)
     local chunks = {}
     local last = 1
-    str = trim(str)
 
     for i = 1, #str, size do
         last = i + size
